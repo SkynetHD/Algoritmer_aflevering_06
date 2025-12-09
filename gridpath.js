@@ -11,10 +11,10 @@ function beregneStier() {
         }
     }
     const walls = [
-        [0, 3], [0, 9],
-        [1, 1], [1, 3], [1, 6],
-        [2, 2], [2, 8], [2, 11],
-        [3, 4]
+    [0, 3],  [0, 9],
+    [1, 1],  [1, 5],
+    [2, 2],  [2, 7],  [2, 11],
+    [3, 4]
     ];
     function isWall(row, col) {
         for (let i = 0; i < walls.length; i++) {
