@@ -1,5 +1,5 @@
-// Beregner antallet af stier fra S til E ved hjælp af dynamisk programmering
-// Bruger en bottom-up strategi hvor vi regner baglæns fra slutningen
+// Beregner antallet af stier fra Start til slut ved hjælp af dynamisk programmering
+// Starter fra slutningen
 function beregneStier() {
     const rows = 5;
     const cols = 12;
@@ -28,7 +28,7 @@ function beregneStier() {
         dp[rows - 1][cols - 1] = 1;
     }
 
-    // Fylder tabellen fra bunden-højre mod toppen-venstre
+    // Fylder tabellen
     for (let i = rows - 1; i >= 0; i--) {
         for (let j = cols - 1; j >= 0; j--) {
             if (isWall(i, j)) {
@@ -54,7 +54,6 @@ function beregneStier() {
         }
     }
 
-    // Opdaterer alle celler i gridet
     for (let i = 0; i < rows; i++) {
         for (let j = 0; j < cols; j++) {
             if (!isWall(i, j)) {
@@ -70,7 +69,6 @@ function opdaterCelle(row, col, value) {
     if (cell && !cell.classList.contains('wall')) {
         cell.textContent = value;
 
-        // Bevarer S og E markering
         if (row === 0 && col === 0) {
             cell.textContent = 'S=' + value;
         } else if (row === 4 && col === 11) {
